@@ -10,6 +10,7 @@ file_content = [
 	'  int temp_i;'
 	'  int *cells = calloc(30000, sizeof(int));',
 	'  int index = 0;',
+	'  int temp_index;'
 ]
 
 file = open(input("file path/name: "))
@@ -32,7 +33,8 @@ for i in range(len(data)):
 		file_content.append((tab * tabs) + 'temp_i = temp_c;')
 		file_content.append((tab * tabs) + 'cells[index] = temp_i;')
 	if data[i] == "[":
-		file_content.append((tab * tabs) + 'while(cells[index] != 0) {')
+		file_content.append((tab * tabs) + 'temp_index = index;')
+		file_content.append((tab * tabs) + 'while(cells[temp_index] != 0) {')
 		tabs += 1
 	if data[i] == "]":
 		tabs -= 1
